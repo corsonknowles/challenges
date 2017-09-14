@@ -1,8 +1,4 @@
-#Imagine we have an image. We’ll represent this image as a simple 2D array
-# where every pixel is a 1 or a 0. The image you get is known to have a single
-# rectangle of 0s on a background of 1s. Write a function that takes in the
-# image and returns the coordinates of the rectangle -- either top-left and
-# bottom-right; or top-left, width, and height.
+# Find a square of 0's on a background of ones
 
 def locator(image)
   top_left_corner = nil
@@ -27,10 +23,9 @@ end
 
 # Runs in O(n) time with O(1) space
 
-# Next Question....
-# The image you get is known to have N rectangles of 0s on a background of 1s.
-# Write a function that takes in the image and outputs the coordinates of all
-# the 0 rectangles -- top-left and bottom-right; or top-left, width and height.
+# Note: This could also be written very simply with Reduce and counting the shorter dimensions, but the time complexity would remain the same, space complexity would be length + width, which is 0(n) in worst case when either length or width is 1.
+
+# Now do it for multiple rectangles of zeroes on a background of 1's
 
 def locator2(image)
   result = []
