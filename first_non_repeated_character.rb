@@ -1,8 +1,19 @@
 def firstNotRepeatingCharacter(s)
+    hash = hashcount(s)
+    # letters = ('a'..'z').to_a
+    nonrepeats = hash.select { |letter, value| value == 1 }
+    return '_' if nonrepeats.empty?
+
+    nonrepeats.first.first
+
+end
+
+
+def firstNotRepeatingCharacter2(s)
     input = hashcount2(s)
     indices = input.last
     hash = input.first
-    # letters = ('a'..'z').to_a
+    letters = ('a'..'z').to_a
     # letters.each do |letter|
     #     return letter if hash[letter] == 1
     # end
@@ -31,4 +42,12 @@ def hashcount2(string)
         end
     end
     [result, indices]
+end
+
+def hashcount(string)
+    result = Hash.new(0)
+    string.each_char do |letter|
+        result[letter] += 1
+    end
+    result
 end
